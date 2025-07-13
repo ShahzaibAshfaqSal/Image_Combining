@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Combiner</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <video autoplay muted loop id="background-video">
+    <source src="static/3129671-uhd_3840_2160_30fps.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+</video>
+
+    <div class="upload-container">
+        <div class="upload-group">
+            <label>Upload Person 1:</label>
+            <input type="file" id="person1" accept="image/*" onchange="previewImage('person1', 'person1-preview')">
+            <button class="remove-btn" onclick="removeImage('person1', 'person1-preview')">Remove</button>
+            <img id="person1-preview" class="preview" style="display: none; max-width: 100px;">
+        </div>
+        <div class="upload-group">
+            <label>Person 1 Width:</label>
+            <input type="range" id="person1-width" min="30" max="500" value="100" oninput="updateSize('person1')">
+            <span id="person1-width-value">100px</span>
+        </div>
+        <div class="upload-group">
+            <label>Person 1 Height:</label>
+            <input type="range" id="person1-height" min="30" max="500" value="100" oninput="updateSize('person1')">
+            <span id="person1-height-value">100px</span>
+        </div>
+        <div class="upload-group">
+            <label>Upload Person 2:</label>
+            <input type="file" id="person2" accept="image/*" onchange="previewImage('person2', 'person2-preview')">
+            <button class="remove-btn" onclick="removeImage('person2', 'person2-preview')">Remove</button>
+            <img id="person2-preview" class="preview" style="display: none; max-width: 100px;">
+        </div>
+        <div class="upload-group">
+            <label>Person 2 Width:</label>
+            <input type="range" id="person2-width" min="30" max="500" value="100" oninput="updateSize('person2')">
+            <span id="person2-width-value">100px</span>
+        </div>
+        <div class="upload-group">
+            <label>Person 2 Height:</label>
+            <input type="range" id="person2-height" min="30" max="500" value="100" oninput="updateSize('person2')">
+            <span id="person2-height-value">100px</span>
+        </div>
+        <div class="upload-group">
+            <label>Upload Background:</label>
+            <input type="file" id="background" accept="image/*" onchange="previewImage('background', 'background-preview')">
+            <button class="remove-btn" onclick="removeImage('background', 'background-preview')">Remove</button>
+            <img id="background-preview" class="preview" style="display: none; max-width: 100px;">
+        </div>
+        <button onclick="uploadImages()">Process Images</button>
+    </div>
+
+    <div id="loader" class="loader"></div>
+
+    <div class="result-container" id="result" style="display: none;">
+        <h2>Composite Preview</h2>
+        <canvas id="composite-canvas"></canvas>
+        <button id="finalize-btn" onclick="finalizeImage()" style="display: none;">Finalize Image</button>
+        <h2>Enhanced Image</h2>
+
+        <div id="loader1" class="loader"></div>
+
+        <img id="enhanced-image" style="display: none; max-width: 100%;">
+        <a id="download-enhanced" href="" download="enhanced_composite.png" style="display: none;">Download Enhanced Image</a>
+
+        <div id="loader2" class="loader"></div>
+
+        <img id="harmonized-image" style="display: none; max-width: 100%;" alt="Harmonized Image">
+        <a id="download-harmonized" style="display: none;" download="harmonized_composite.png">Download Harmonized</a>
+    </div>
+
+    <script src="/static/script.js"></script>
+</body>
+</html>
