@@ -1,0 +1,8 @@
+Flask==3.1.1
+numpy==2.3.1
+opencv_python==4.11.0.86
+opencv_python_headless==4.11.0.86
+Pillow==11.3.0
+rembg==2.0.59
+torch==2.1.0
+torchvision==0.16.0
