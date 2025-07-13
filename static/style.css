@@ -1,0 +1,323 @@
+/* Modern reset and base styles */
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #1a1a1a;
+}
+
+/* Upload container with glassmorphism effect */
+.upload-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 16px;
+    box-shadow: 0 8px 32px rgba(31, 38, 135, 0.2);
+    backdrop-filter: blur(10px);
+    padding: 2rem;
+    width: 100%;
+    max-width: 600px;
+    animation: slideIn 0.5s ease-out;
+}
+
+/* Upload group with subtle hover animation */
+.upload-group {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    transition: transform 0.3s ease;
+}
+
+.upload-group:hover {
+    transform: translateY(-2px);
+}
+
+/* Enhanced button styles with gradient and scale animation */
+button {
+    padding: 0.75rem 1.5rem;
+    background: linear-gradient(45deg, #007bff, #00c4ff);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+button::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.3),
+        transparent
+    );
+    transition: 0.5s;
+}
+
+button:hover {
+    background: linear-gradient(45deg, #0056b3, #0091cc);
+    transform: scale(1.05);
+    box-shadow: 0 4px 15px rgba(0, 123, 255, 0.4);
+}
+
+button:hover::after {
+    left: 100%;
+}
+
+/* Finalize button with larger size and pulse animation */
+#finalize-btn {
+    margin-top: 1rem;
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
+    animation: pulse 2s infinite;
+}
+
+/* Remove button with distinct color scheme */
+.remove-btn {
+    background: linear-gradient(45deg, #dc3545, #ff6b6b);
+}
+
+.remove-btn:hover {
+    background: linear-gradient(45deg, #b02a37, #e04b59);
+    box-shadow: 0 4px 15px rgba(220, 53, 69, 0.4);
+}
+
+/* Preview with fade-in animation */
+.preview {
+    margin-left: 1rem;
+    opacity: 0;
+    animation: fadeIn 0.5s ease forwards 0.2s;
+}
+
+/* Result container with centered content and shadow */
+.result-container {
+    margin-top: 2rem;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 2rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 600px;
+}
+
+/* Canvas with subtle border animation */
+#composite-canvas {
+    position: relative;
+    border: 2px solid transparent;
+    border-radius: 8px;
+    background: linear-gradient(45deg, #fff, #fff) padding-box,
+                linear-gradient(45deg, #007bff, #00c4ff) border-box;
+    animation: borderGlow 3s infinite alternate;
+}
+
+/* Enhanced image with scale-up animation */
+#enhanced-image {
+    margin-top: 2rem;
+    border-radius: 8px;
+    border: 2px solid transparent;
+    background: linear-gradient(45deg, #fff, #fff) padding-box,
+                linear-gradient(45deg, #28a745, #48bb78) border-box;
+    transition: transform 0.3s ease;
+}
+
+#enhanced-image:hover {
+    transform: scale(1.02);
+}
+
+/* Download button with vibrant green gradient */
+#download-enhanced {
+    display: inline-block;
+    margin-top: 1rem;
+    padding: 0.75rem 1.5rem;
+    background: linear-gradient(45deg, #28a745, #48bb78);
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+#download-enhanced:hover {
+    background: linear-gradient(45deg, #218838, #38a169);
+    box-shadow: 0 4px 15px rgba(40, 167, 69, 0.4);
+    transform: scale(1.05);
+}
+
+
+#download-harmonized {
+    display: inline-block;
+    margin-top: 1rem;
+    padding: 0.75rem 1.5rem;
+    background: linear-gradient(45deg, #28a745, #48bb78);
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+#download-harmonized:hover {
+    background: linear-gradient(45deg, #218838, #38a169);
+    box-shadow: 0 4px 15px rgba(40, 167, 69, 0.4);
+    transform: scale(1.05);
+}
+
+/* Advanced loader with dual-ring animation */
+.loader {
+    border: 6px solid transparent;
+    border-top: 6px solid #007bff;
+    border-bottom: 6px solid #00c4ff;
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    animation: dualSpin 1.2s linear infinite;
+    margin: 2rem auto;
+    display: none;
+}
+
+/* Range input with custom styling */
+input[type="range"] {
+    width: 200px;
+    height: 8px;
+    background: linear-gradient(90deg, #007bff 0%, #00c4ff 100%);
+    border-radius: 4px;
+    outline: none;
+    cursor: pointer;
+    appearance: none;
+    -webkit-appearance: none;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 20px;
+    height: 20px;
+    background: #fff;
+    border: 2px solid #007bff;
+    border-radius: 50%;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s ease;
+}
+
+input[type="range"]::-webkit-slider-thumb:hover {
+    transform: scale(1.2);
+}
+
+/* Label and value styling */
+.upload-group label {
+    width: 120px;
+    font-weight: 600;
+    color: #1a1a1a;
+    font-size: 0.95rem;
+}
+
+.upload-group span {
+    width: 60px;
+    text-align: right;
+    font-size: 0.9rem;
+    color: #333;
+    font-weight: 500;
+}
+
+/* Keyframe animations */
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(0, 123, 255, 0.4);
+    }
+    50% {
+        box-shadow: 0 0 0 10px rgba(0, 123, 255, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(0, 123, 255, 0);
+    }
+}
+
+@keyframes borderGlow {
+    0% {
+        border-color: #007bff;
+    }
+    100% {
+        border-color: #00c4ff;
+    }
+}
+
+@keyframes dualSpin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+    .upload-container,
+    .result-container {
+        padding: 1.5rem;
+    }
+
+    .upload-group {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    input[type="range"] {
+        width: 100%;
+    }
+
+    .upload-group label,
+    .upload-group span {
+        width: auto;
+        text-align: left;
+    }
+}
+
+#background-video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+    opacity: 0.7;
+}
