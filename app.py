@@ -691,5 +691,7 @@ def cleanup_session_endpoint():
     cleanup_session(session_id)
     return jsonify({'message': f'Session {session_id} cleaned up'}), 200
 
-if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=int(os.getenv('PORT', 5000)), debug=False)
+if __name__ == "__main__":
+    app.run(host="0.0.0.0", port=7860)
+
+
